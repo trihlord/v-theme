@@ -12,6 +12,7 @@
     "format": "oxfmt src/"
   },
   "dependencies": {
+    "@picocss/pico": "^2.1.1",
     "vue": "rc"
   },
   "devDependencies": {
