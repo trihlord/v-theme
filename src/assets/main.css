@@ -1,6 +1,12 @@
 @import '@picocss/pico/css/pico.classless.min.css';
 
 html,
-body {
+body,
+#app {
   height: 100%;
+}
+
+#app {
+  display: grid;
+  place-items: center;
 }
