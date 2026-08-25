@@ -1,1 +1,6 @@
-@import '@picocss/pico';
+@import '@picocss/pico/css/pico.classless.min.css';
+
+html,
+body {
+  height: 100%;
+}
