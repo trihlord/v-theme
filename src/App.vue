@@ -5,8 +5,8 @@ const { isDark } = useTheme()
 </script>
 
 <template>
-  <span>Theme: {{ isDark }}</span>
-  <button @click="isDark = !isDark">Invert</button>
+  <span>Theme: {{ isDark ? 'dark' : 'light' }}</span>
+  <button @click="isDark = !isDark">Toggle</button>
 </template>
 
 <style scoped></style>

@@ -1,4 +1,4 @@
-import { onBeforeMount, ref, watch } from 'vue'
+import { ref, watchEffect } from 'vue'
 
 const themeEncoding = {
   marshall(value: boolean) {
@@ -45,17 +45,13 @@ const themeStorage = {
 }
 
 export function useTheme() {
-  const isDark = ref(false)
+  const isDark = ref(themeEncoding.unmarshall(themeStorage.get()))
 
-  watch(isDark, (isDarkValue) => {
-    if (isDarkValue) {
-      return themeStorage.set(themeEncoding.marshall(isDarkValue))
+  watchEffect(() => {
+    if (isDark.value) {
+      return themeStorage.set(themeEncoding.marshall(isDark.value))
     }
     themeStorage.remove()
-  })
-
-  onBeforeMount(() => {
-    isDark.value = themeEncoding.unmarshall(themeStorage.get())
   })
 
   return { isDark }
